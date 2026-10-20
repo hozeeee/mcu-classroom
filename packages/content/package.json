@@ -1,0 +1,23 @@
+{
+  "name": "@mcu/content",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "学习路线、物料库、实战项目、排障手册与 Markdown 文章",
+  "exports": {
+    ".": "./src/index.ts",
+    "./paths": "./src/paths.ts"
+  },
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "files": [
+    "articles",
+    "src"
+  ],
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@mcu/shared": "workspace:*"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "name": "mcu-classroom",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.34.7",
+  "description": "一站式单片机学习与实操平台：学习路线、物料、电路编辑、在线仿真、编译烧录、串口调试",
+  "author": "hozeeee",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hozeeee/mcu-classroom.git"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n server,web -c blue,green \"pnpm dev:server\" \"pnpm dev:web\"",
+    "dev:server": "pnpm --filter @mcu/server dev",
+    "dev:web": "pnpm --filter @mcu/web dev",
+    "dev:desktop": "concurrently -k -n web,desktop -c green,magenta \"pnpm dev:web\" \"pnpm --filter @mcu/desktop dev\"",
+    "build": "pnpm --filter @mcu/web build && pnpm --filter @mcu/server build",
+    "build:desktop": "pnpm build && pnpm --filter @mcu/desktop build",
+    "dist:desktop": "pnpm build:desktop && pnpm --filter @mcu/desktop dist",
+    "start": "pnpm --filter @mcu/server start",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "pnpm -r --parallel typecheck",
+    "prepare": "simple-git-hooks"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^9.5.1",
+    "@eslint-react/eslint-plugin": "^5.28.1",
+    "@types/node": "^22.15.0",
+    "concurrently": "^10.0.6",
+    "eslint": "^10.13.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.7",
+    "lint-staged": "^16.1.0",
+    "simple-git-hooks": "^2.13.0",
+    "typescript": "~5.9.3"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}

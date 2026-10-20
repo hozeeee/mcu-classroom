@@ -1,0 +1,22 @@
+name: ✨ 功能建议 / 内容补充
+description: 希望新增的功能、教程、元件或实战项目
+labels: [enhancement]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: 类型
+      options:
+        - 新功能
+        - 教程 / 知识库内容
+        - 物料 / 元件
+        - 实战项目
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: 详细描述
+    validations:
+      required: true

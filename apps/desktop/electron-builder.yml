@@ -1,0 +1,57 @@
+# electron-builder 打包配置：https://www.electron.build/configuration
+appId: com.hozeeee.mcu-classroom
+productName: MCU Classroom
+copyright: Copyright © 2026 hozeeee
+artifactName: mcu-classroom-${version}-${os}-${arch}.${ext}
+
+directories:
+  output: release
+  buildResources: build
+
+# 主进程已把后端及依赖全部打包进 dist，安装包里不需要 node_modules
+files:
+  - dist/**/*
+  - package.json
+  - '!**/*.map'
+
+# 前端构建产物与 Markdown 文章放到 resources/ 下，由主进程读取
+extraResources:
+  - from: ../web/dist
+    to: web
+  - from: ../../packages/content/articles
+    to: articles
+
+asar: true
+npmRebuild: false
+nodeGypRebuild: false
+
+mac:
+  category: public.app-category.developer-tools
+  target:
+    - target: dmg
+      arch: [x64, arm64]
+  hardenedRuntime: true
+
+win:
+  target:
+    - target: nsis
+      arch: [x64, arm64]
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  shortcutName: MCU Classroom
+
+linux:
+  category: Development
+  maintainer: hozeeee
+  target:
+    - AppImage
+    - deb
+
+publish:
+  provider: github
+  owner: hozeeee
+  repo: mcu-classroom
+  releaseType: draft

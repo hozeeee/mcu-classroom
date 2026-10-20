@@ -1,0 +1,16 @@
+minimumReleaseAgeExcludePrune: true
+trustPolicy: no-downgrade
+shellEmulator: true
+
+packages:
+  - apps/*
+  - packages/*
+
+# 只在 Squirrel 安装包中使用，本项目用 NSIS，无需执行安装脚本
+ignoredBuiltDependencies:
+  - electron-winstaller
+
+onlyBuiltDependencies:
+  - electron
+  - esbuild
+  - simple-git-hooks

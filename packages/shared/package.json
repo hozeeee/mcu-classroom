@@ -1,0 +1,15 @@
+{
+  "name": "@mcu/shared",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "前后端共享的类型、开发板定义与平台检测工具",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  }
+}

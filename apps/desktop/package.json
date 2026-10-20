@@ -1,0 +1,25 @@
+{
+  "name": "@mcu/desktop",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MCU Classroom 桌面端：内置后端服务，一键安装即可在本机编译、烧录、串口调试",
+  "author": "hozeeee",
+  "license": "MIT",
+  "homepage": "https://github.com/hozeeee/mcu-classroom",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "tsup --watch --onSuccess \"electron . --dev\"",
+    "build": "tsup",
+    "start": "electron .",
+    "dist": "electron-builder --config electron-builder.yml",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@mcu/server": "workspace:*",
+    "@mcu/shared": "workspace:*",
+    "electron": "^44.9.0",
+    "electron-builder": "^26.15.3",
+    "tsup": "^8.5.1"
+  }
+}

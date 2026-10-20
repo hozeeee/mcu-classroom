@@ -1,0 +1,16 @@
+.circuit-lab {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.circuit-lab-bar {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--app-border);
+  background: var(--app-panel);
+}
+
+.circuit-lab-editor {
+  flex: 1;
+  min-height: 0;
+}

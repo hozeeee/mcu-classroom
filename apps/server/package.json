@@ -1,0 +1,34 @@
+{
+  "name": "@mcu/server",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MCU Classroom 后端：内容 API、SQLite 存储、arduino-cli 工具链、编译烧录与串口",
+  "exports": {
+    ".": "./src/app.ts"
+  },
+  "main": "./src/app.ts",
+  "types": "./src/app.ts",
+  "scripts": {
+    "dev": "tsx watch --clear-screen=false src/index.ts",
+    "build": "tsup",
+    "start": "node dist/index.js",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.3.1",
+    "@fastify/static": "^10.1.6",
+    "@fastify/websocket": "^11.3.4",
+    "@mcu/content": "workspace:*",
+    "@mcu/shared": "workspace:*",
+    "extract-zip": "^2.0.1",
+    "fastify": "^5.12.7",
+    "gray-matter": "^4.0.3",
+    "tar": "^7.5.22"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.18.2",
+    "tsup": "^8.5.1",
+    "tsx": "^4.23.15"
+  }
+}
