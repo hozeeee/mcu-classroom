@@ -2,6 +2,7 @@ import { CheckOutlined, CodeOutlined, CopyOutlined } from '@ant-design/icons'
 import { Button, Space, Tooltip } from 'antd'
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
+import { copyText } from '../../utils/clipboard'
 
 interface CodeBlockProps {
   code: string
@@ -16,7 +17,7 @@ export function CodeBlock({ code, lang }: CodeBlockProps) {
   const runnable = lang !== undefined && RUNNABLE_LANGS.has(lang) && code.includes('setup')
 
   const copy = async () => {
-    await navigator.clipboard.writeText(code)
+    await copyText(code)
     setCopied(true)
     setTimeout(setCopied, 1500, false)
   }

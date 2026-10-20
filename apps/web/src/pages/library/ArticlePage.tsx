@@ -8,6 +8,7 @@ import { QueryState } from '../../components/QueryState'
 import { useArticle, useCategories } from '../../queries/content'
 import { ArticlePager } from './ArticlePager'
 import { ArticleSidebar } from './ArticleSidebar'
+import { AskAiButton } from './AskAiButton'
 
 export default function ArticlePage() {
   const { category = '', slug = '' } = useParams()
@@ -37,12 +38,16 @@ export default function ArticlePage() {
                   <Tag>{`约 ${article.minutes} 分钟`}</Tag>
                   {article.tags.map(tag => <Tag key={tag} color="geekblue">{tag}</Tag>)}
                 </Flex>
-                <ProgressToggle type="article" id={article.slug} />
+                <Flex wrap gap={8} align="center">
+                  <AskAiButton article={article} categoryName={categoryName} />
+                  <ProgressToggle type="article" id={article.slug} />
+                </Flex>
               </Flex>
               <Divider />
               <MarkdownView source={article.body} />
               <Divider />
-              <Flex justify="center">
+              <Flex justify="center" align="center" wrap gap={8}>
+                <AskAiButton article={article} categoryName={categoryName} />
                 <ProgressToggle type="article" id={article.slug} />
               </Flex>
               <ArticlePager article={article} />
