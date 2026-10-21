@@ -43,12 +43,18 @@ nsis:
   createDesktopShortcut: true
   shortcutName: MCU Classroom
 
+# package.json 的 name 是 @mcu/desktop，不能直接作为 Linux 可执行文件名 / deb 包名，需显式指定
 linux:
+  executableName: mcu-classroom
+  syncDesktopName: true
   category: Development
   maintainer: hozeeee
   target:
     - AppImage
     - deb
+
+deb:
+  packageName: mcu-classroom
 
 publish:
   provider: github

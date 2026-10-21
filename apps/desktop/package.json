@@ -7,6 +7,7 @@
   "author": "hozeeee",
   "license": "MIT",
   "homepage": "https://github.com/hozeeee/mcu-classroom",
+  "desktopName": "mcu-classroom.desktop",
   "main": "dist/main.js",
   "scripts": {
     "dev": "tsup --watch --onSuccess \"electron . --dev\"",
